@@ -34,4 +34,14 @@ fn main() {
         max = max.max(sum(&bundle));
     }
     println!("max is {}", max);
+
+    let mut top_three = bundles
+        .iter()
+        .map(|b| sum(b))
+        .collect::<Vec<i32>>();
+    top_three.sort();
+    top_three.reverse();
+    let top_three = &top_three[..3];
+
+    println!("top three sum is {}", sum(top_three));
 }
